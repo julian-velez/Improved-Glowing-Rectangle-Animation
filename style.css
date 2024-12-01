@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle, #1a1a1a, #0d0d0d);
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    gap: 30px;
+    perspective: 800px; /* Para un efecto 3D */
+  }
+  
+  .rectangle {
+    width: 20px;
+    height: 150px;
+    background: linear-gradient(90deg, #ff3d00, #ff9100, #f50057, #00e5ff, #76ff03);
+    background-size: 400% 400%;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8),
+                0 0 60px rgba(255, 0, 0, 0.6),
+                0 0 100px rgba(255, 0, 0, 0.4);
+    animation: move 3s cubic-bezier(0.5, 0.05, 0.1, 1) infinite,
+               glow 1.5s ease-in-out infinite alternate,
+               color-flow 5s linear infinite;
+  }
+  
+  .rectangle:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  .rectangle:nth-child(3) {
+    animation-delay: 1s;
+  }
+  .rectangle:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+  .rectangle:nth-child(5) {
+    animation-delay: 2s;
+  }
+  
+  @keyframes move {
+    0%, 100% {
+      transform: translateY(0) rotateX(0deg);
+    }
+    25% {
+      transform: translateY(-50px) rotateX(10deg);
+    }
+    50% {
+      transform: translateY(20px) rotateX(-10deg);
+    }
+    75% {
+      transform: translateY(-30px) rotateX(5deg);
+    }
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.8),
+                  0 0 60px rgba(0, 255, 255, 0.6),
+                  0 0 100px rgba(0, 255, 255, 0.4);
+    }
+    to {
+      box-shadow: 0 0 50px rgba(255, 255, 255, 1),
+                  0 0 80px rgba(255, 20, 147, 0.8),
+                  0 0 120px rgba(255, 20, 147, 0.6);
+    }
+  }
+  
+  @keyframes color-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
